@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>商品列表</title>
+</head>
+<body>
+    <h2>歡迎 {{ session['username'] }}！</h2>
+    <form method="post">
+        {% for product in products %}
+            <input type="checkbox" name="product" value="{{ product.name }}"> {{ product.name }} - {{ product.price }} 元
+            數量：<input type="number" name="quantity" value="1" min="1"><br>
+        {% endfor %}
+        備註：<input type="text" name="remark"><br>
+        <input type="submit" value="提交訂單">
+    </form>
+    <a href="/logout">登出</a>
+</body>
+</html>
